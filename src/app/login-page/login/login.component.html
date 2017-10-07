@@ -1,0 +1,45 @@
+<br><br>
+<div  class="container-fluid" *ngIf="account">
+    <app-header [account]="account"></app-header>
+    <div class="row">
+        <div class="col-sm-4 col-login">
+            <div class="card bg-color-white">
+                <div class="card-content"><br>
+                    <span class="card-title">CLIENT BRIDGE LOGIN</span>
+                    <form class="md-form-auth form-validation" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <md-input-container class="full-width md-icon-left">
+                                <md-icon class="material-icons">mail_outline</md-icon>
+                                <input mdInput type="email" formControlName="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Email*">
+                            </md-input-container>
+                        </div>
+                        <div class="form-group">
+                            <md-input-container class="full-width md-icon-left">
+                                <md-icon class="material-icons">lock_outline</md-icon>
+                                <input mdInput type="password" formControlName="password" placeholder="Password*">
+                            </md-input-container>
+                        </div>
+                        <button md-raised-button type="submit" color="primary" class="float-right" [disabled]="!loginForm.valid">Login</button>
+                        <p class="text-small" style="color: red; text-align: center" *ngIf="message">{{message}}</p>
+                    </form>
+                </div>
+                <div class="card-action">
+                    <a [routerLink]="['/forgot-password']" class="color-primary">Forgot your password?</a>
+                    <span class="divider-h"></span>
+                    <a href="javascript:;" (click)="onSignup()" class="color-primary">Sign up</a>  
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+<div style="text-align: center" *ngIf="account">
+    <a style="color: #2196F3;">
+        <p>OR<br>I already have an account and it's linked to Google</p>
+    </a>
+    <img [src]="google" width="auto" height="50px;" (click)="handleSignInClick($event)" />
+</div>
+<br><br><br>
+
+<div *ngIf="account">
+    <app-footer [account]="account" class="footer static"></app-footer>
+</div>

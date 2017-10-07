@@ -1,0 +1,12 @@
+<div class="box box-default">
+    <div [ngClass]="getAppConfig()">
+        <md-toolbar class="square tb-remove-color">
+            <a [routerLink]="['/admin/questionnaires']"><i class="material-icons arrow_color">keyboard_backspace</i></a>
+            <span style="flex: 0.04 auto;"></span>
+            <span style="font-size: 14px;">{{title}}
+            <br>
+            <span style="font-size: 12px;">{{subtitle}}</span>
+            </span>
+        </md-toolbar>
+    </div>
+</div>

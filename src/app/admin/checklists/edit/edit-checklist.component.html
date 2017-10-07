@@ -1,0 +1,56 @@
+<contacts-header [title]="title" [subtitle]="subtitle" [path]="path"></contacts-header>
+<div *ngIf="selectedTask">
+    <div class="container-fluid">
+        <div class="row" style="margin-left: 10px;">
+            <div class="col-md-11 form-group">
+                <md-input-container class="full-width">
+                    <input mdInput [(ngModel)]="selectedTask.title" placeholder="Title" />
+                </md-input-container>
+            </div>
+        </div>
+        <div class="row" style="margin-left: 10px;">
+            <div class="col-md-11 form-group">
+                <md-input-container class="full-width">
+                    <input mdInput [(ngModel)]="selectedTask.description" placeholder="Description">
+                </md-input-container>
+            </div>
+        </div>
+
+        <div class="row" *ngFor="let subTask of selectedTask.tasks;let i = index">
+            <div class="col-md-11">
+                <article class="article">
+                    <div class="box box-default">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="javascript:;" class="remove-underline">
+                                        <div class="font-13 arial-serif  font-darkgray" (click)="editChecklist(subTask)" [innerHTML]="subTask.task">{{subTask.task}}</div>
+                                    </a>
+                                </div>
+                                <div class="col-sm-6" style="text-align: end;">
+                                    <a href="javascript:;" class="delete-gray delete-padding">
+                                            <i class="material-icons notranslate" (click)="onRemoveItem(i)">cancel</i>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <button md-raised-button type="submit" class="btn-w-md btn-deep-pink" color="primary" (click)="onDeleteTaskSet()">Delete</button>
+            </div>
+            <div class="col-md-4">
+                <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onAddItem()">Add New Item</button>
+                <span class="space"></span>
+                <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave()">Save</button>
+            </div>
+
+        </div>
+    </div>
+</div>

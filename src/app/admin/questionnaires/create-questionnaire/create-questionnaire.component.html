@@ -1,0 +1,61 @@
+<div style="display:table; width: 100%;">
+    <div style="display:table-cell; width: 80%;">
+       <questionnaire-admin-header 
+            [title]="title" [subtitle]="subtitle">
+        </questionnaire-admin-header>
+        <div style="width: 80%; margin-left: 60px;">
+            <div style="width: 80%">
+                <md-input-container class="full-width">
+                    <input mdInput placeholder="Title" [(ngModel)]="dQuestion.title" />
+                </md-input-container>
+                <md-input-container class="full-width">
+                <input mdInput placeholder="Instruction" [(ngModel)]="dQuestion.instruction" />
+                </md-input-container>
+            </div>
+            
+
+            <!--<p style="color: red">*Note Delete item move back to the Orignal List</p>-->
+            <div class="callout callout-warning">
+                <h4>Note</h4>
+                <p>Items dragged into the field below will be added to the questionnaire. Deleted items will go back to the list on the right. Use the search field to filter the list of available fields.</p>
+            </div>
+            <div class="div-boder ih-item ih-material" dnd-sortable-container [sortableData]="dQuestion.questions" dnd-droppable (onDropSuccess)="addTo($event)" [dropZones]="['source-dropZone']">
+                <ul class="list-group">
+                    <li *ngFor="let question of this.dQuestion.questions; let x1 = index" class="list-group-item" 
+                        dnd-sortable [sortableIndex]="x1" [dragEnabled]="true" 
+                        [dragData]="question" style="margin-top: 10px;">
+                        {{question.label}} 
+                        <a href="javascript:;" class="delete-gray delete-padding" (click)="onRemoveItem(x1, question)" style="margin-left: auto;">
+                            <i class="material-icons notranslate">cancel</i>
+                        </a>            
+                    </li>
+                </ul> 
+            </div>
+            <br>
+            <div style="margin-right: 25px; text-align: end;">
+                <button md-raised-button class="btn-w-md" (click)="onDelete()" style="background-color: orange; color: white">Clear All</button>
+                <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave()">Save</button>
+            </div>
+            <br>
+        </div>
+   </div>
+
+    <!--  -->
+    <div style="display:table-cell;" class="card bg-color-white" dnd-sortable-container [sortableData]="FILEDS" [dropZones]="['source-dropZone']">
+        <a  href="/" onclick="return false;"><p style="text-align: center"><b>Contact Properties</b></p></a>
+        <hr>
+        <div class="input-group" style=" margin-left: 20px; width: 200px;">
+            <div class="input-group-addon"><i _ngcontent-c7="" class="material-icons notranslate">search</i></div>
+            <input class="form-control"  [(ngModel)]="input"  type="text" placeholder="Name" (keyup)="filterFields(input)"> 
+        </div>
+        <br>
+        <div class="side-dive">
+            <div *ngFor="let filed of FILEDS ; let x = index; " class="card bg-color-white sid-div" 
+                dnd-sortable [sortableIndex]="x" [dragEnabled]="true" [dragData]="filed">
+                <p class="sid-div-msg">{{filed.label}} </p>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<br><br>

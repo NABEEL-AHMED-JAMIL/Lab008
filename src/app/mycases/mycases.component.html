@@ -1,0 +1,24 @@
+<mycases-header [title]="title" [subtitle]="subtitle"></mycases-header>
+
+<div class="container-fluid no-breadcrumbs page-dashboard margeright" *ngIf="allItems">
+    <div class="row">
+        <div class="col-xl-2 col-lg-2" *ngFor="let item of allItems;"  >
+             <div class="card" (click)="onSelect(item.id)">
+                 <div class="card-content card_background_body" style="cursor: pointer; width: 100%;">
+                    <h3>{{item.contactName}}</h3>
+                    {{item.name}}<br/>
+                    {{ utilService.dateChange(item.createdDate)}}   
+                </div>
+                <div class="card-action" >
+                    <span mdTooltip="Status" mdTooltipPosition="left">
+                    <button md-raised-button 
+                        [ngStyle]="{'background-color': utilService.statusColor(item), 'color': 'white'}" 
+                        class="btn-w-sm" >{{utilService.status(item)}}</button> 
+                    </span>
+                         <span class="space"></span>
+                        <i aria-hidden="true" class="fa fa-mail-forward"></i>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.app-sidebar .nav li .badge {
+    position: absolute;
+    padding: 3px 7px;
+}
+
+.app-sidebar .sidebar-content .badge {
+    display: inherit;
+    top: 8px;
+    right: 110px;
+}

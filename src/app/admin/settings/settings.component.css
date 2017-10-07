@@ -1,0 +1,29 @@
+
+.section-left {
+    margin-left: 30px;
+    
+}
+
+.header-top{
+    padding-top:10px;
+}
+
+.section-width {
+    width:600px
+}
+
+.article-width {
+    width:750px
+}
+
+.page-size {
+    height:80px;
+    width:140px;
+}
+.menu-height {
+    height:80px;
+    width:140px;
+}
+.pad {
+    padding : 13px;
+}

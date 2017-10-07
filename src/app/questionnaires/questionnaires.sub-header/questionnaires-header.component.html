@@ -1,0 +1,20 @@
+<div class="box box-default">
+    <div [ngClass]="getAppConfig()">
+        <md-toolbar  class="square tb-remove-color">
+            <!-- for admin   -->
+            <a *ngIf="adminLink" [routerLink]="['/admin/selecteduser']" class="arrow_color">
+            <i class="material-icons" >keyboard_backspace</i>
+        </a>
+
+            <!--for end user  -->
+            <a *ngIf="showArrow && !adminLink" [routerLink]="[path]" class="arrow_color">
+            <i class="material-icons" >keyboard_backspace</i>
+        </a>
+            <span style="flex: 0.04 auto;"></span>
+            <span style="font-size: 14px;">{{title}}
+            <br>
+            <span style="font-size: 12px;">{{subtitle}}</span>
+            </span>
+        </md-toolbar>
+    </div>
+</div>

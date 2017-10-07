@@ -1,0 +1,113 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row">
+        <div class="col-md-11" align="right" *ngIf="!readOnly">
+            <!-- style="margin-left:auto" -->
+            <button md-raised-button type="submit" class="material-icons margin_auto_button" color="primary" (click)="addCriminalConviction()">
+                Add
+            </button><br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div *ngFor="let e of data.criminalConvictions ; let i = index">
+                <section>
+                    <article class="article">
+                        <div class="box box-default">
+                            <div class="container-fluid">
+                                <br>
+                                <div class="row">
+                                    <!--Date 1-->
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Date" type="date" [ngModel]="e.date | dateFormat" (ngModelChange)="e.date = changeModel($event)"
+                                                [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <br/>
+                                <!--Description of the Criminal Conviction 2-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Description of the Criminal Conviction" [(ngModel)]="e.criminalConvictionsDescription" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <br/>
+                                <!--Probation? 3-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="Probation?" [(ngModel)]="e.hadProbation" [disabled]="readOnly">
+                                            <md-option *ngFor="let value of values" [value]="value">
+                                                {{value}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <br/>
+                                <!--Parole? 4-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="Parole?" [(ngModel)]="e.hadParole" [disabled]="readOnly">
+                                            <md-option *ngFor="let value of values" [value]="value">
+                                                {{value}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <br/>
+                                <!--How long was your parole time?-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="How long was your parole time?" type="number" [(ngModel)]="e.paroleLength" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <br/>
+                                <!--Jail? 6-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="Jail?" [(ngModel)]="e.hadJail" [disabled]="readOnly">
+                                            <md-option *ngFor="let value of values" [value]="value">
+                                                {{value}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <br/>
+                                <!--How long was your jail time? 7-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="How long was your jail time?" type="number" [(ngModel)]="e.jailLength" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="!readOnly">
+                                    <div class="col-md-3 form-group">
+                                        <button md-raised-button class="btn-w-md" (click)="deleteCriminalConviction(i)" color="warn">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+
+            <div class="divider divider-md"></div>
+            <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent"
+                (click)="undoSubmit()">Edit Responses</button>
+            <div *ngIf="!readOnly" style="text-align: end;">
+                <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+                <span class="space"></span>
+                <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

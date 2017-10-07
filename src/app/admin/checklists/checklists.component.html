@@ -1,0 +1,42 @@
+<div class="container-fluid top" style="margin-right: 125px;">
+    <h5 class="color-primary">Your Checklists</h5>
+    <div class="row" *ngIf="adminData">
+        <div class="col-md-12">
+            <div class="box box-default" *ngFor="let task of adminData.account.taskSets; let i = index">
+                <div class="box-body" >
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <a href="javascript:;" class="remove-underline" (click)="onEditCheckList(task.id)">
+                                <div class="typo-styles__demo mdl-typography--title"><span class="font-16 arial-serif font-black">{{task.title}}</span></div>
+                                <div class="typo-styles__desc">
+                                    <span class="typo-styles__name "><span class="font-12 font-gray arial-serif">{{task.description}}</span></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="col-sm-4" class="margin-top-5 most-left">
+                                <span mdTooltip="Delete" mdTooltipPosition="left">
+                                    <a href="javascript:;" class="circle-close-gray">
+                                        <i class="material-icons notranslate" (click)="onDeleteChecklist(task)">delete_forever</i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div> 
+
+<div id='fixedbutton' class="row">
+    <div class="col-sm-4">
+        <span mdTooltip="Create New List" mdTooltipPosition="left">
+            <button color="success" md-fab="" class="mat-success mat-fab" ng-reflect-color="success" (click)="onCreateChecklist()">
+                <span class="mat-button-wrapper" > 
+                    <md-icon class="material-icons mat-icon notranslate" role="img" aria-label="add">add</md-icon>
+                </span>
+            </button>
+        </span>
+    </div>
+</div>

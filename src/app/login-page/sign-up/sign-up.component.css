@@ -1,0 +1,14 @@
+.message_Confirm{
+    
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.link{
+    color: #2196F3;
+}
+
+.warn{
+    color: red;
+    text-align: center;
+}

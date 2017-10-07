@@ -1,0 +1,5 @@
+<md-select placeholder="Select Question" [(ngModel)]="dataValue" style="width: 100%">
+        <md-option *ngFor="let questions of list" [value]="questions">
+                {{questions.title}}
+        </md-option>
+</md-select>

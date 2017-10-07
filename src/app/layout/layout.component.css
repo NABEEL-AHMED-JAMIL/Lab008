@@ -1,0 +1,103 @@
+ md-toolbar{
+    background-color: #009688;
+    color: white;
+} 
+
+.green-btn{
+    background-color: #009688;
+    color: white;
+}
+.title{
+    font-size: 15px;
+}
+
+.subtitle{
+    font-size: 12px;
+}
+
+.small_fount{
+    font-size: 12px;
+}
+
+.small_fountXL{
+    font-size: 12px;
+    /*margin-top: 1000px;*/
+}
+
+p.margin_text{
+    margin-left: 100px; 
+    margin-top: 50px; 
+    margin-bottom: 50px;
+}
+
+.card_background_body{
+  
+  background-color: gray; 
+  color: white;
+  
+}
+
+.container-fluid {
+    margin-left: 30px;
+}
+
+.mg-top-20{
+    margin-top:20px;
+}
+
+.card_background_folder_body{
+    background-color: gray; 
+     color: #6b6c6d;
+  
+}
+
+.margeright{
+    margin-left: 0.9cm;
+}
+
+.a-white{
+    color:white;
+}
+
+.padding-l-40{
+    padding-left: 40px
+}
+.margin-top-15{
+    margin-top:15px;
+}
+
+.font-gray{
+        color:#a4a4a4;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+.font-14 {
+    font-size: 14px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.box-padding{
+    padding-top:0 px; 
+    padding-bottom: 0px;
+}
+
+
+.arrow_color{
+    color: white;
+}
+
+.tb-remove-color{
+    background-color:transparent;
+}
+.tb-opacity {
+    opacity : 0.85;
+}
+.fab-custom-1 {
+    position: fixed;
+    right: 45px;
+    bottom: 45px;
+    z-index: 1;
+}

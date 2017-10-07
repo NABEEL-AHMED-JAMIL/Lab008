@@ -1,0 +1,123 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row" *ngIf="!readOnly">
+        <div class="col-md-11" align="right">
+            <!-- style="margin-left:auto" -->
+            <button md-raised-button type="submit" class="material-icons margin_auto_button" color="primary" (click)="addI94Entries()">
+                Add
+            </button>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div *ngFor="let e of data.i94Entries ; let i = index">
+                <section>
+                    <article class="article">
+                        <div class="box box-default">
+                            <div class="container-fluid">
+                                <br>
+                                <div class="row">
+                                    <!--Arrival Date 1-->
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Arrival Date" type="date" [ngModel]="e.arrivalDate | dateFormat" (ngModelChange)="e.arrivalDate = changeModel($event)"
+                                                [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Place (City/State) 2-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Place (City/State)" [(ngModel)]="e.place" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--State 3-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="State" [(ngModel)]="e.stateAbbr" [disabled]="readOnly">
+                                            <md-option *ngFor="let state of states" [value]="state">
+                                                {{state}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!--In what status did you enter? 4-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput class="form-control" placeholder="In what status did you enter?" [(ngModel)]="e.arrivalEntryStatus" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--I-94 Number 5-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="I-94 Number" type="number" [(ngModel)]="e.I94Num" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--I-94 Expiration 6-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="I-94 Expiration" [(ngModel)]="e.expiryI94" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Passport # 7-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Passport #" [(ngModel)]="e.passportNumber" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Travel Document Number-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input type="number" mdInput placeholder="Travel Document Number" [(ngModel)]="e.travelDocumentNum" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+
+                                <!--Alien Number (No Dashes)-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input type="number" mdInput placeholder="Expiration Date for Passport or Travel Document" [(ngModel)]="e.expiryTravelDocPassport"
+                                                [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+
+                                <div class="row" *ngIf="!readOnly">
+                                    <div class="col-md-3 form-group">
+                                        <button md-raised-button class="btn-w-md" (click)="deleteI94Entries(i)" color="warn">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent"
+        (click)="undoSubmit()">Edit Responses</button>
+    <div *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>
+<br><br>

@@ -1,0 +1,36 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle"></questionnaires-header>
+<div class="container-fluid" *ngIf="visiblePage" style="margin-right:125px;">
+    <div class="row">
+        <div class="col-sm-12" style="margin-bottom: 20px;">
+            <div class="box box-default">
+                <br>
+                <div *ngFor="let ques of questionnaires; let i = index">
+                    <div class="col-sm-8" style="margin-bottom: 20px;">
+                        <a href="javascript:;" class="remove-underline" (click)="navigateTo(ques)">
+                            <dd>
+                                <div class="typo-styles__demo mdl-typography--title"><span class="arial-serif font-16 font-darkgray">{{getTitle(ques.name)}}</span></div>
+                                <div class="typo-styles__desc">
+                                    <span class="typo-styles__name "><span class="font-12 font-gray">{{getInstruction(ques.name)}}</span></span>
+                                </div>
+                            </dd>
+                        </a>
+                    </div>
+                </div>
+                <div *ngFor="let ques of customQuestionnaires ; let i = index">
+                    <div class="col-sm-8" style="margin-bottom: 20px;">
+                        <a href="javascript:;" class="remove-underline" (click)="navigateTo(ques)">
+                            <dd>
+                                <div class="typo-styles__demo mdl-typography--title"><span class="arial-serif font-16 font-darkgray">{{ques.title}}</span></div>
+                                <div class="typo-styles__desc">
+                                    <span class="typo-styles__name "><span class="font-12 font-gray">{{ques.instruction}}</span></span>
+                                </div>
+                            </dd>
+                        </a>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+.btas-loading {
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+}
+
+.btas-loading__progress {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.75);
+    z-index: 99998;
+    /* Inherits the font color */
+    height: 100%;
+    /* Add CSS3 styles for transition smoothing */
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.btas-loading__brand {
+    margin-top: 100px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}

@@ -1,0 +1,188 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+
+<div class="container-fluid" *ngIf="data">
+    <div class="row" *ngIf="!readOnly">
+        <div class="col-md-11" align="right">
+            <!-- style="margin-left:auto" -->
+            <button md-raised-button type="submit" class="material-icons margin_auto_button" color="primary" (click)="addChild()">
+                Add
+            </button><br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div *ngFor="let e of data.children ; let i = index">
+                <section>
+                    <article class="article">
+                        <div class="box box-default">
+                            <div class="container-fluid">
+                                <br>
+                                <div class="row">
+                                    <!--First Name 1-->
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Firat Name" [(ngModel)]="e.firstName" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Middle Name 2-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Middle Name" [(ngModel)]="e.middleName" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Last Name 3-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Last Name" [(ngModel)]="e.lastName" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Date of Birth 4-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput class="form-control" type="date" placeholder="Date of birth" [ngModel]="e.dob | dateFormat" (ngModelChange)="e.dob = changeModel($event)"
+                                                [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--City / Town of Birth 5-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="City/Town of Birth" [(ngModel)]="e.birthCity" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--State / Province of Birth 6-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="State / Province of Birth" [(ngModel)]="e.birthState" [disabled]="readOnly">
+                                            <md-option *ngFor="let state of states" [value]="state">
+                                                {{state}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!--Country of Birth 7-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Country of Birth" [(ngModel)]="e.birthCountry" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--What is your child's relationship to you? 8-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="What is your child's relationship to you?" [(ngModel)]="e.childRelationshipTo" [disabled]="readOnly">
+                                            <md-option *ngFor="let relation of childRelationList" [value]="g">
+                                                {{relation}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!--Social Security Number (No spaces or dashes)-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input type="number" mdInput placeholder="Social Security Number(No spaces or dashes)" [(ngModel)]="e.ssN" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Gender-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="Gender" [(ngModel)]="e.gender" [disabled]="readOnly">
+                                            <md-option *ngFor="let g of genders" [value]="g">
+                                                {{g}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!--Alien Number (No Dashes)-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input type="number" mdInput placeholder="Alien Number (No Dashes)" [(ngModel)]="e.alienNum" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Passport #-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input type="number" mdInput placeholder="Passport #" [(ngModel)]="e.passport" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Passport Country of Issuance-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Passport Country of Issuance" [(ngModel)]="e.placeIssuance" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Date Passport Issued-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput class="form-control" type="date" placeholder="Date Passport Issued" [ngModel]="e.passIssued | dateFormat"
+                                                (ngModelChange)="e.passIssued = changeModel($event)" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Passport valid to (Date)-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput class="form-control" type="date" placeholder="Passport valid to (Date)" [ngModel]="e.passExpiry | dateFormat"
+                                                (ngModelChange)="e.passExpiry = changeModel($event)" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Citizenship / Nationality-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Citizenship/Nationality" [(ngModel)]="e.citiZenShip" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Country of Nationality-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Country of Nationality" [(ngModel)]="e.countryNationlity" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3 form-group" *ngIf="!readOnly">
+                                        <button md-raised-button class="btn-w-md" (click)="deleteChild(i)" color="warn">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent"
+        (click)="undoSubmit()">Edit Responses</button>
+    <div *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>

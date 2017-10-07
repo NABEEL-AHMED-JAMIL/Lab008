@@ -1,0 +1,17 @@
+<h1 md-dialog-title>Edit Item</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <div [froalaEditor]="options" [(ngModel)]="content"> </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-4">
+        <a href="javascript:;" (click)="dialogRef.close(['PROCEED',content])">Save</a>
+        <span class="space"></span>
+        <a href="javascript:;" (click)="dialogRef.close(['CANCEL'])">Cancel</a>
+    </div>
+</div>

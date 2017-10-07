@@ -1,0 +1,26 @@
+// takes advantage of Bootstrap 4 variables, however it's not required for essential layout
+@import "variables";
+
+@import
+    "layout/base"
+,   "layout/header"
+,   "layout/sidebar"
+,   "layout/page-container"
+,   "layout/footer"
+,   "layout/quickview"
+,   "layout/overlay"
+,   "layout/boxed"
+,   "layout/sidebar-removed"
+,   "layout/sidebar-addons"
+,   "layout/sidebar-collapsed"
+,   "layout/sidebar-behind"
+,   "layout/sidebar-width"
+,   "layout/header-theme"
+,   "layout/sidebar-theme"
+,   "layout/page-container-theme"
+,   "layout/overlay-theme"
+,   "layout/quickview-app"
+,   "layout/quickview-customizer"
+,   "layout/md"
+,   "layout/md-sidenav-right"
+;

@@ -1,0 +1,14 @@
+<h1 md-dialog-title>{{title}}</h1>
+<div md-dialog-content>
+    <md-select placeholder="Select Question" [(ngModel)]="data.value" style="width: 100%">
+        <md-option *ngFor="let questions of questionnaires" [value]="questions">
+            {{questions.title}}
+        </md-option>
+    </md-select>
+</div>
+<br><br>
+<div md-dialog-actions>
+    <button md-button (click)="dialogRef.close('CANCEL')">{{cancelButtonTitle}}</button>
+    <p style="width: 80%"></p>
+    <button md-button (click)="dialogRef.close(data)">{{saveButtonTitle}}</button>
+</div>

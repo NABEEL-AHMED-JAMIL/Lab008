@@ -1,0 +1,311 @@
+<div *ngIf="appConfig">
+<settings-header [title]="title" [subtitle]="subtitle" [setting]="appConfig"  ></settings-header>  
+<div class="row section-left" style="margin-right: 0px;">
+        <div class="col-xl-11 col-lg-11">
+            <a><h4>Theme Option</h4></a>
+                <div class="card bg-color-white">
+                    <div class="card-content">
+                        <div class="row">
+                            <!--Firm Logo 1  ok-->
+                             <div class="col-md-4 form-group" > 
+                                  <!-- for now temp  -->
+                                  <label>Firm Logo</label><br>
+                                  <img  [src]="dAccount.firmLogoCB " width="auto" height="45px" (click)="addUrl()" style="border:solid;"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <!--Firm Name 1 ok-->
+                            <div class="col-md-11 form-group">
+                                <md-input-container class="full-width">
+                                    <input mdInput placeholder="Firm Name" [(ngModel)]="dAccount.firmNameCB" />
+                                </md-input-container>
+                            </div>
+                        </div> 
+                        <!--Firm Email 2-->
+                         <div class="row">
+                            <div class="col-md-11 form-group">
+                                <md-input-container class="full-width">
+                                    <input mdInput placeholder="Firm Email" [(ngModel)]="dAccount.googleEmail" />
+                                </md-input-container>
+                            </div>
+                        </div> 
+                        <!--Frim phone Number 3 ok-->
+                         <div class="row">
+                            <div class="col-md-11 form-group">
+                                <md-input-container class="full-width">
+                                    <input mdInput placeholder="Firm Phone Number" [(ngModel)]="dAccount.firmCal" />
+                                </md-input-container>
+                            </div>
+                        </div> 
+                        <!--Firm Fax Number 4 ok-->
+                         <div class="row">
+                            <div class="col-md-11 form-group">
+                                <md-input-container class="full-width">
+                                    <input mdInput placeholder="Firm Fax Number" [(ngModel)]="dAccount.firmFax" />
+                                </md-input-container>
+                            </div>
+                        </div> 
+                        <!--Default Email Notification 5 ok-->
+                         <div class="row">
+                            <div class="col-md-11 form-group">
+                                <md-input-container class="full-width">
+                                    <input mdInput placeholder="Default Email Notification" [(ngModel)]="dAccount.defaultAlertEmail" />
+                                </md-input-container>
+                            </div>
+                        </div> 
+                        <!--Customer Url 6 ok -->
+                        <div class="row">
+                            <div class="col-md-11 form-group">
+                                <md-input-container class="full-width">
+                                    <input mdInput placeholder="Custom Url" [(ngModel)]="dAccount.customUrl" />
+                                </md-input-container>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> 
+        </div>
+</div>
+
+<div class="row section-left" style="margin-right: 0px;" >
+    <div class="col-xl-4 col-lg-4">
+         <a><h4>Theme Option</h4></a>
+        <div class="card bg-color-white">
+            <div class="card-content">
+                <!--
+                <div class="row">
+                    <div class="col s2">
+                            <label class="color-option-check">
+                                <input type="radio" name="color" value="11" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                    <span class="overlay">
+                                        <span class="material-icons notranslate ">check</span>
+                                    </span>
+                                    <span class="bg-color-dark item-header"></span>
+                                    <span class="bg-color-light item-header"></span>
+                                   
+                                    <span class="bg-color-dark"></span>
+                                </span>
+                        </label>
+                    </div>
+                    
+                    <div class="col s2">
+                        <label class="color-option-check">
+                            <input type="radio" name="color" value="12" [(ngModel)]="appConfig.colorOption">
+                            <span class="color-option-item bg-color-page">
+                                <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                <span class="bg-color-primary item-header"></span>
+                                <span class="bg-color-light item-header"></span>
+                                <span class="bg-color-dark"></span> 
+                            </span>
+                        </label>
+                    </div>
+                        <div class="col s2">
+                        <label class="color-option-check">
+                            <input type="radio" name="color" value="13" [(ngModel)]="appConfig.colorOption">
+                            <span class="color-option-item bg-color-page">
+                                <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                <span class="bg-color-success item-header"></span>
+                                <span class="bg-color-light item-header"></span>
+                                <span class="bg-color-dark"></span> 
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col s2">
+                        <label class="color-option-check">
+                            <input type="radio" name="color" value="14" [(ngModel)]="appConfig.colorOption">
+                            <span class="color-option-item bg-color-page">
+                                <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                <span class="bg-color-info item-header"></span>
+                                <span class="bg-color-light item-header"></span>
+                                <span class="bg-color-dark"></span> 
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col s2">
+                            <label class="color-option-check">
+                            <input type="radio" name="color" value="15" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                        <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-warning item-header"></span>
+                                    <span class="bg-color-light item-header"></span>
+
+                                    <span class="bg-color-dark"></span> 
+                                </span>
+                            </label>
+                    </div>
+                </div>
+                -->
+                    <div class="row">
+                    <!--
+                        <div class="col s2">
+                            <label class="color-option-check">
+                                <input type="radio" name="color" value="16" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                    <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-danger item-header"></span>
+                                    <span class="bg-color-light item-header"></span>
+                                    <span class="bg-color-dark"></span> 
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col s2">
+                            <label class="color-option-check">
+                                <input type="radio" name="color" value="21" [(ngModel)]="appConfig.colorOption">
+                                    <span class="color-option-item bg-color-page">
+                                        <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                        <span class="bg-color-light item-header"></span>
+                                        <span class="bg-color-light item-header"></span>
+                                        <span class="bg-color-dark"></span> 
+                                    </span>
+                            </label>
+                        </div>
+                        -->
+                    <div class="col s2">
+                            <label class="color-option-check">
+                                <input type="radio" name="color" value="25" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                    <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-warning item-header"></span>
+                                    <span class="bg-color-warning item-header"></span>
+                                    <span class="bg-color-dark"></span> 
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col s2">
+                            <label class="color-option-check">
+                            <input type="radio" name="color" value="26" [(ngModel)]="appConfig.colorOption">
+                            <span class="color-option-item bg-color-page">
+                                    <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-danger item-header"></span>
+                                    <span class="bg-color-danger item-header"></span>
+                                    <span class="bg-color-dark"></span> 
+                            </span>
+                            </label>   
+                        </div>
+                        <div class="col s2">
+                            <label class="color-option-check">
+                                <input type="radio" name="color" value="22" [(ngModel)]="appConfig.colorOption">
+                                    <span class="color-option-item bg-color-page">
+                                        <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                        <span class="bg-color-primary item-header"></span>
+                                        <span class="bg-color-primary item-header"></span>
+                                        <span class="bg-color-dark"></span> 
+                                    </span>
+                            </label>
+                        </div>
+                        <div class="col s2">
+                                <label class="color-option-check">
+                                    <input type="radio" name="color" value="23" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                    <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-success item-header"></span>
+                                    <span class="bg-color-success item-header"></span>
+                                    <span class="bg-color-dark"></span> 
+                                </span>
+                            </label> 
+                        </div>
+                        <div class="col s2">
+                                <label class="color-option-check">
+                                <input type="radio" name="color" value="24" [(ngModel)]="appConfig.colorOption">
+                                    <span class="color-option-item bg-color-page">
+                                        <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                        <span class="bg-color-info item-header"></span>
+                                        <span class="bg-color-info item-header"></span>
+                                        <span class="bg-color-dark"></span> 
+                                    </span>
+                                </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s2"></div>
+                        <div class="col s2">
+                                <label class="color-option-check">
+                                <input type="radio" name="color" value="34" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                    <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-info item-header"></span>
+                                    <span class="bg-color-info item-header"></span>
+                                    <span class="bg-color-light"></span> 
+                                </span>
+                            </label>
+
+                        </div>
+                        <div class="col s2">
+                                <label class="color-option-check">
+                                <input type="radio" name="color" value="35" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                    <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-warning item-header"></span>
+                                    <span class="bg-color-warning item-header"></span>
+                                    <span class="bg-color-light"></span> 
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col s2">
+                                <label class="color-option-check">
+                                <input type="radio" name="color" value="36" [(ngModel)]="appConfig.colorOption">
+                                <span class="color-option-item bg-color-page">
+                                    <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                    <span class="bg-color-danger item-header"></span>
+                                    <span class="bg-color-danger item-header"></span>
+                                    <span class="bg-color-light"></span> 
+                                </span>
+                            </label>   
+                        </div>
+                        <div class="col s2"></div>
+                    </div>
+                    <br>
+                    
+                    <div class="row">
+                        <div class="col s2"></div>
+                            <div class="col s2">
+                                <label class="color-option-check">
+                                    <input type="radio" name="color" value="33" [(ngModel)]="appConfig.colorOption">
+                                    <span class="color-option-item bg-color-page">
+                                        <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                        <span class="bg-color-success item-header"></span>
+                                        <span class="bg-color-success item-header"></span>
+                                        <span class="bg-color-light"></span> 
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="col s2">
+                                <label class="color-option-check">
+                                    <input type="radio" name="color" value="31" [(ngModel)]="appConfig.colorOption">
+                                    <span class="color-option-item bg-color-page">
+                                        <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                        <span class="bg-color-dark item-header"></span>
+                                        <span class="bg-color-dark item-header"></span>
+                                        <span class="bg-color-light"></span> 
+                                    </span>
+                                </label> 
+                            </div>
+                            <div class="col s2">
+                                <label class="color-option-check">
+                                    <input type="radio" name="color" value="32" [(ngModel)]="appConfig.colorOption">
+                                    <span class="color-option-item bg-color-page">
+                                        <span class="overlay"><span class="material-icons notranslate ">check</span></span>
+                                        <span class="bg-color-primary item-header"></span>
+                                        <span class="bg-color-primary item-header"></span>
+                                        <span class="bg-color-light"></span> 
+                                    </span>
+                                </label>
+                            </div>
+                            
+                        <div class="col s2"></div>
+                    </div>
+                    
+            </div>
+        </div> 
+    </div>
+</div>
+<br>
+
+<div style="margin-right: 25px; text-align: end;">
+    <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+
+</div>
+<br>
+<br> 
+</div>

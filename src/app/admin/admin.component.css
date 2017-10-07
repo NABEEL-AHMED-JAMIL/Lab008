@@ -1,0 +1,190 @@
+.p-left {
+    margin-left: 20px;
+    
+}
+
+/* .select-left{
+    margin-left:700px;
+} */
+
+
+.artical-margin {
+    margin-left:10px;
+    margin-top:20px
+}
+
+.col-top {
+    margin-top:-28px;
+}
+
+.section-left {
+    margin-left: 30px;
+    
+}
+
+
+.circle-close-gray {
+    color:#a4a4a4;
+    margin-top:20px
+}
+
+.circle-close-gray:hover {
+     color:red; 
+
+}
+.arial-serif{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.task-p{
+    color: black;
+    font-size: 10px;
+    margin-top: -5px;
+}
+
+.task{
+    margin-top: -35px;
+    margin-left: -15px;
+}
+
+.container-fluid {
+    margin-left: 30px;
+    margin-top:20px
+}
+
+md-input-container{
+    width: 500px;
+    margin-left: -25px;
+    padding-top: 7px;
+}
+
+.box-padding{
+    padding-top:0 px; 
+    padding-bottom: 0px;
+}
+
+.delete-gray {
+    color:#a4a4a4;
+    margin-top:20px
+}
+
+.delete-gray:hover {
+     color:red; 
+}
+
+.mat-checkbox-inner-container{
+    height:15px;
+    width:15px;
+}
+.delete-padding{
+    padding-left:100px;
+}
+
+.remove-underline{
+    text-decoration: none !important;
+}
+
+.box-shadow{
+    box-shadow: 4px 0px 24px #888888;
+}
+
+
+.font-10 {
+    font-size: 10px;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+.font-13 {
+    font-size: 13px;
+}
+.font-14 {
+    font-size:14px;
+}
+.font-16 {
+    font-size:16px;
+}
+
+.font-15 {
+    font-size:15px;
+}
+
+.font-20{
+    font-size:20px;
+}
+
+.font-weight {
+    font-weight: 200
+}
+.font-gray{
+        color:#a4a4a4;
+}
+
+.font-darkgray{
+    color :#808080;
+}
+.font-black{
+    color:black;
+}
+.padding-l-40{
+    padding-left: 40px
+}
+.margin-top-15{
+    margin-top:15px;
+}
+
+.margin-top-30-neg{
+    margin-top:-30px;
+}
+.margin-top-15-neg{
+    margin-top:-15px;
+}
+.btn-purple{
+    background-color: purple;
+}
+.btn-deep-pink{
+    background-color: deeppink;
+}
+.color-link{
+    color:  #83acf1
+}
+.font-blue{
+    color:  #2196F3
+}
+.top{
+    margin-top:25px;
+}
+.most-left{
+ position: absolute;
+ right: 10px;
+
+}
+.margin-top-5{
+    margin-top: 5px
+}
+
+.padding-top-15{
+  padding-top:15px; 
+}
+/* .col-sm-8{
+   padding-top: 25px;
+   padding-right: 40px;
+    text-align: -webkit-right;
+} */
+
+#fixedbutton {
+    position: fixed;
+    bottom: 60px;
+    right: 45px; 
+}
+
+
+.text_area{
+    margin-left: 45px;
+}
+.fab-custom-1 {
+    position: fixed;
+    right: 45px;
+    bottom: 45px;
+    z-index: 1;
+}

@@ -1,0 +1,344 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.firstName" placeholder="First Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.middleName" placeholder="Middle Name" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.lastName" placeholder="Last Name" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthFirstName" placeholder="Birth First Name" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthMiddleName" placeholder="Birth Middle Name" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthLastName" placeholder="Birth Last Name" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.email" placeholder="Email" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.defaultAlertEmail" placeholder="Default Alter Email" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.phonePrimary" placeholder="Primary Phone" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.phonePrimaryExt" placeholder="Extension" onlynumber="true" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.phoneMobile" placeholder="Mobile Phone" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.phoneHome" placeholder="Home Phone" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.phoneEmergency" placeholder="Emergency Contact Number" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.emergencyContactName" placeholder="Emergency Contact Name" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.emergencyContactRelation" placeholder="Relationship to this Contact" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainInCareOf" placeholder="In Care Of" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainStreet" placeholder="Street Address" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="Building Type" [(ngModel)]="data.addressMainBldType" [disabled]="readOnly">
+                <md-option *ngFor="let type of buildingTypes" [value]="type">
+                    {{type}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainNum" placeholder="Apt / Bld #" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainCity" placeholder="City or Town" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="State" [(ngModel)]="data.addressMainState" [disabled]="readOnly">
+                <md-option *ngFor="let state of states" [value]="state">
+                    {{state}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainZip" placeholder="Zip Code" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainPostal" placeholder="Postal Code" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainProvince" placeholder="Province" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainCounty" placeholder="Country" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-11 form-group">
+            Street Address<br><br>
+            <md-checkbox [checked]="isSameAsMailing" (change)="copyResidentialAddress()" [disabled]="readOnly">Same as Mailing</md-checkbox>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMailingInCareOf" placeholder="In Care Of" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="Building Type" [(ngModel)]="data.addressMailingBldType" [disabled]="readOnly">
+                <md-option *ngFor="let type of buildingTypes" [value]="type">
+                    {{type}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMailingNum" placeholder="Apt / Bld #" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMailingCity" placeholder="City or Town" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMailingCounty" placeholder="Country" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="State" [(ngModel)]="data.addressMailingState" [disabled]="readOnly">
+                <md-option *ngFor="let state of states" [value]="state">
+                    {{state}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMailingZip" placeholder="Zip Code" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMailingPostal" placeholder="Postal Code" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMailingProvince" placeholder="Province" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="Is English Speaking?" [(ngModel)]="data.isEnglishSpeaking" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.nativeLanguage" placeholder="What is your native language?" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.gender" placeholder="Gender" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.birthDate | dateFormat" (ngModelChange)="data.birthDate = changeModel($event)" placeholder="Date of Birth"
+                    type="date" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthCity" placeholder="City / Town of Birth" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthState" placeholder="State / Province of Birth" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthProvince" placeholder="Province of Birth" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthCountry" placeholder="Country of Birth" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.ssn" placeholder="Social Security Number (No spaces or dashes)" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.alienNum" placeholder="Alien Number (No Dashes)" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent"
+        (click)="undoSubmit()">Edit Responses</button>
+    <div *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+</div>
+<br>

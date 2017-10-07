@@ -1,0 +1,105 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row">
+        <div class="col-md-11" align="right" *ngIf="!readOnly">
+            <!-- style="margin-left:auto" -->
+            <button md-raised-button type="submit" class="material-icons margin_auto_button" color="primary" (click)="addHistory()">
+                Add
+            </button><br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div *ngFor="let e of data.histories ; let i = index">
+                <section>
+                    <article class="article">
+                        <div class="box box-default">
+                            <div class="container-fluid">
+                                <br>
+                                <div class="row">
+                                    <!--Reason arrested, cited, detained or charged? 1-->
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Reason arrested, cited, detained or charged?" [(ngModel)]="e.reasonChargeArrest" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Date of arrest, citation, detention, charge 2-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Date of arrest, citation, detention, charge" type="date" [ngModel]="e.dateArrestCitation | dateFormat"
+                                                (ngModelChange)="e.dateArrestCitation = changeModel($event)" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--City or Town 3-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="City or Town" [(ngModel)]="e.city" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--State 4-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="State" [(ngModel)]="e.stateAbbr" [disabled]="readOnly">
+                                            <md-option *ngFor="let state of states" [value]="state">
+                                                {{state}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!--Country  5-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Country" [(ngModel)]="e.country" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Where were you arrested, cited, detained or charged 6-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Where were you arrested, cited, detained or charged" [(ngModel)]="e.placeArrestCitation" [disabled]="readOnly"
+                                            />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Outcome or disposition 7-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-select placeholder="What is your child's relationship to you?" [(ngModel)]="e.outcomeDisposition" [disabled]="readOnly">
+                                            <md-option *ngFor="let relation of outcomeDispositionList" [value]="relation">
+                                                {{relation}}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <div class="row" *ngIf="!readOnly">
+                                    <div class="col-md-3 form-group">
+                                        <button md-raised-button class="btn-w-md" (click)="deleteHistory(i)" color="warn">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent"
+        (click)="undoSubmit()">Edit Responses</button>
+    <div *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,46 @@
+<div *ngIf="receiptNumber">
+    <mycases-header [item]="selectedItem" [balance]="receiptNumber.balance"></mycases-header>
+</div>
+<md-tab-group>
+    <md-tab label="Team">
+        <section class="box box-transparent">
+            <div class="box-body margeright">
+                <div class="article-title-style" *ngIf="selectedItem">
+                    <div class="col-xl-4" *ngFor="let assignee of selectedItem.assignees">
+                        <div class="box box-default box-body">
+                            <div class="icon-box ibox-dark">
+                                <div class="ibox-icon">
+                                    <a href="javascript:;"><img [src]="assignee.profilePic" alt="" class="rounded img30_30"></a>
+                                </div>
+                                <h3>{{assignee.firstName}} {{assignee.lastName}}</h3>
+                                <p>{{assignee.role}} <br>
+                                    <a class="" href="mailto:{{assignee.email}}">{{assignee.email}}</a><br/>
+                                    <a class="" href="tel:{{assignee.userPhoneNumberExt}}">{{assignee.userPhoneNumberExt}}</a><br/>
+                                    <br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </md-tab>
+    <md-tab label="Receipt Numbers">
+        <section class="box box-transparent">
+            <div class="box-body margeright">
+                <div class="article-title-style" *ngIf="selectedItem.receiptNum">
+                    <span class="space"></span>
+                    <a href="https://egov.uscis.gov/casestatus/mycasestatus.do?appReceiptNum=selectedItem.receiptNum" target="_blank">{{selectedItem.receiptNum}}</a>
+                    <br>
+                </div>
+                <div class="article-title-style" *ngIf="receiptNumber">
+                    <div *ngFor="let receipts of receiptNumber.receipts">
+                        <span class="space"></span>
+                        <a href="https://egov.uscis.gov/casestatus/mycasestatus.do?appReceiptNum=receipts.key" target="_blank">[{{receipts.value}}] {{receipts.key}}</a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </md-tab>
+</md-tab-group>

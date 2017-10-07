@@ -1,0 +1,26 @@
+ <check-list-header [title]="title" [subtitle]="subtitle"></check-list-header> 
+<div class="container-fluid artical-margin" style="margin-top:20px" *ngIf="dtasks">
+    <div class="row" *ngFor="let task of dtasks;let i=index;">
+        <div class="col-sm-12">
+            <div class="box box-default">
+                <div class="box-body box-padding">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <strong class="font-16 color-primary">{{task.title}}</strong>
+                            <p><sup class="font-12 font-gray">{{task.description}}</sup></p>
+                        </div>
+                    </div>
+                    <div class="row" *ngFor="let t of task.tasks;let j=index" style="margin-top:-30px">
+                        <div class="col-sm-11">
+                            <!-- <md-list-item> -->
+                            <md-checkbox [checked]="t.done" (change)="onCheckedItem(task,j)" class="mat-accent mat-checkbox mat-checkbox-anim-unchecked-checked mat-checkbox-checked"
+                                ng-reflect-checked="true">
+                                <p class="margin-top-15 font-12" [innerHTML]="t.task">{{t.task}}</p>
+                            </md-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

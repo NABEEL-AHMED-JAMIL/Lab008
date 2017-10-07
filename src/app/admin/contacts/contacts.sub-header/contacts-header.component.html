@@ -1,0 +1,42 @@
+<div class="box box-default" *ngIf="title">
+    <div [ngClass]="getAppConfig()" class="bg-color-primary tb-opacity">
+        <md-toolbar class="square tb-remove-color" color="primary">
+            <a [routerLink]="[path]" class="arrow_color notranslate"><i class="material-icons">keyboard_backspace</i></a>
+            <span style="flex: 0.04 auto;"></span>
+            <span class="title">{{title}}
+            <br>
+            <span class="subtitle">{{subtitle}}</span>
+            </span>
+
+        </md-toolbar>
+    </div>
+</div>
+
+<div class="box box-default" *ngIf="contactCache">
+    <div [ngClass]="getAppConfig()" class="bg-color-primary tb-opacity">
+        <md-toolbar class="square tb-remove-color">
+            <a [routerLink]="[path]"><i class="material-icons arrow_color notranslate">keyboard_backspace</i></a>
+            <span style="flex: 0.10 auto;"></span>
+            <span class="title">{{contactCache.firstName}} {{contactCache.lastName}}
+            <br>
+            <span class="subtitle">{{contactCache.email}}</span>
+            </span>
+            <span style="flex: 4.08 1 auto;"></span>
+            <button *ngIf="!contactCache.isLollyContact" class="btn-w-xs mat-accent mat-raised-button green-btn" md-raised-button=""
+                (click)="onClick(contactCache.id)">
+            Link to Lolly Law
+        </button>
+            <span style="flex: 0.06  auto;"></span>
+            <button md-icon-button [mdMenuTriggerFor]="menu">
+            <md-icon>more_vert</md-icon>
+        </button>
+            <md-menu #menu="mdMenu" md-position-mode="target-left target">
+                <div *ngFor="let option of notificationOptions">
+                    <button md-menu-item (click)="sideOption(option.id)">
+                    {{option.option}}
+                </button>
+                </div>
+            </md-menu>
+        </md-toolbar>
+    </div>
+</div>

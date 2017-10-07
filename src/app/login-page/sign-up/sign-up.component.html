@@ -1,0 +1,96 @@
+<br><br>
+<div class="container-fluid" *ngIf="account">
+    <app-header [account]="account"></app-header>
+    <div class="row" *ngIf="show">
+        <div class="col-sm-4" style="margin: auto;">
+            <div class="card bg-color-white">
+                <div class="card-content">
+                    <span class="card-title message_Confirm">SIGN UP</span><br>
+                    <form  class="md-form-auth" (ngSubmit)="onSubmit()" #dRequest="ngForm">        
+                        
+                        <div class="form-group">
+                            <md-input-container class="full-width md-icon-left"> 
+                                <input mdInput type="text"  placeholder="First name" name="firstName" [(ngModel)]="dRequestDTO.firstName" required>
+                            </md-input-container>
+                        </div>
+
+                        <div class="form-group">
+                            <md-input-container class="full-width md-icon-left"> 
+                                <input mdInput type="text"  placeholder="Last Name" name="lastName" [(ngModel)]="dRequestDTO.lastName" required>
+                            </md-input-container>
+                        </div>
+
+                        <div class="form-group" *ngIf="!dRequestDTO.accountId">
+                            <md-input-container class="full-width md-icon-left">
+                                <md-icon class="material-icons">vpn_key</md-icon>
+                                <input mdInput type="text"  placeholder="Account ID" name="accountId"   [(ngModel)]="dRequestDTO.accountId">
+                            </md-input-container>
+                        </div> 
+
+                        <div class="form-group">
+                            <md-input-container class="full-width md-icon-left">
+                                <input mdInput type="text"  placeholder="Phone" name="phone" [(ngModel)]="dRequestDTO.phone" required>
+                            </md-input-container>
+                        </div>
+
+
+                        <div class="form-group">
+                            <md-input-container class="full-width md-icon-left">
+                                <md-icon class="material-icons">mail_outline</md-icon>
+                                <input mdInput type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" placeholder="Email" name="email" [(ngModel)]="dRequestDTO.email" required>
+                            </md-input-container>
+                        </div>
+
+                        <div class="form-group">
+                            <md-input-container class="full-width md-icon-left no-margin-bottom">
+                                <md-icon class="material-icons">lock_outline</md-icon>
+                                <input mdInput type="password"  placeholder="Password" name="password" [(ngModel)]="dRequestDTO.password" required>
+                            </md-input-container>
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-sm-12" style="text-align: -webkit-center;">
+                                 <re-captcha site_key = "6LfHASwUAAAAAK_9LU1uP4ne-zB1gJIX7cWm5_SW" (captchaResponse)="handleCorrectCaptcha($event)" ></re-captcha>
+                                  <p class="text-small">
+                                     <a href="javascript:;" class="warn" (click)="restCaptach()" *ngIf="!success">
+                                         Not verify (Click here again to verify)
+                                    </a>
+                                </p> 
+                            </div>
+                        </div>
+                
+                        <br>
+                        <p class="text-small no-margin" style="text-align: center">By clicking on sign up, you agree to <a href="javascript:;" class="link"><i>terms</i></a> and <a href="javascript:;" style="color: #2196F3;"><i>privacy policy</i></a></p>
+                        <p class="text-small no-margin warn"  *ngIf="message">{{message}}</p>
+                        <div class="divider divider-md"></div>
+                        <button  md-raised-button type="submit" color="primary" class="float-right" [disabled]="!dRequest.form.valid || !valid">Sign Up</button>
+                    </form>
+                </div>
+                <div class="card-action" style="text-align: center">
+                     <!-- <a [routerLink]="['/extra/login']" class="link">Return to Home Screen</a>  -->
+                      <a class="link" href="javascript:;" (click)="goLogin()">Return to Home Screen</a>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!show">
+        <div class="col-sm-4" style="margin: auto;">
+            <div class="card bg-color-white">
+                <div class="card-content">
+                    <span class="card-title" style="font-size: 20px;">CONFIRM EMAIL</span><br>
+                     <p style="text-align: center; margin-right: 80px;">
+                            <md-icon class="material-icons" style="font-size: 100px;">mail_outline</md-icon>
+                        </p>
+                    <p class="text-center text-small no-margin">{{message}}</p>
+                </div>
+                <br><br>
+                <button md-raised-button type="submit" color="primary" style=" width: 100%; height: 50px;" (click)="goLogin()">RETURN TO LOGIN PAGE</button>
+            </div>
+        </div>     
+    </div>
+    <app-footer [account]="account"></app-footer>
+</div>
+
+   
+
+

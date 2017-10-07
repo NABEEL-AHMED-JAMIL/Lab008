@@ -1,0 +1,27 @@
+ <!-- <duser-request-header [title]="title" [subtitle]="subtitle"></duser-request-header>  -->
+<br>
+  <div class="container-fluid top" style="margin-right: 125px;">
+      <h5 class="color-primary">Requests</h5>
+            <div class="row">
+                <div class="col-md-12">
+                    <article class="article artical-margin">
+                        <div class="box box-default" *ngFor="let dRequest of dRequestDtoList; let i = index">
+                            <div class="box-body" >
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <span class="font-16 font-black">{{dRequest.lastName}} {{dRequest.firstName}}</span><br>
+                                        <span class="title-font">{{dRequest.email}} </span><br>
+                                        <span class="title-font"> Date: {{ utilService.dateChange(dRequest.createdDate)}}</span>
+                                        
+                                   </div>
+                                    <div class="col-sm-4" style="text-align: end;">
+                                        <a href="javascript:;" (click)="dRequestStatus(dRequest.id ,true, i)">Approve</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:;" (click)="dRequestStatus(dRequest.id, false, i)">Deny</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+    </div>
+<br><br>  

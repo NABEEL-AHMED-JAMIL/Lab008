@@ -1,0 +1,81 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="Do you have a STEM Degree?" [(ngModel)]="data.q1" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="Domestic violence, sexual assault, child abuse and neglect, dating violence, elder abuse and stalking"
+                [(ngModel)]="data.q2" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="Homicide, murder, manslaughter, rape, abusive sexual contact, sexual exploitation, incest, torture, trafficking, peonage, holding hostage, involuntary servitude, slave trade, kidnapping, abduction, unlawful criminal restraint, false imprisonment or an attempt to commit any of these crimes"
+                [(ngModel)]="data.q3" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="Three or more convictions for crimes relating to a controlled substance or alcohol not arising from a single act"
+                [(ngModel)]="data.q4" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="I violated a protection order issued for my own protection" [(ngModel)]="data.q5" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="I committed, was arrested for, was convicted of, or plead guilty to committing a crime that did not result in serious bodily injury, and there was a connection between the crime committed and my having been battered or subjected to extreme cruelty"
+                [(ngModel)]="data.q6" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="I Have"
+                [(ngModel)]="data.q7" [disabled]="readOnly">
+                <md-option *ngFor="let value of values" [value]="value">
+                    {{value}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent"
+        (click)="undoSubmit()">Edit Responses</button>
+    <div *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>

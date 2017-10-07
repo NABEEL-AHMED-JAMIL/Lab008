@@ -1,0 +1,35 @@
+<section class="app-header">
+    <div class="app-header-inner"
+         [ngClass]="{
+             'bg-color-light': ['11','12','13','14','15','16','21'].indexOf(appConfig.colorOption) >= 0,
+              'bg-color-dark': appConfig.colorOption === '31',
+              'bg-color-primary': ['22','32'].indexOf(appConfig.colorOption) >= 0,
+              'bg-color-success': ['23','33'].indexOf(appConfig.colorOption) >= 0,
+              'bg-color-info': ['24','34'].indexOf(appConfig.colorOption) >= 0,
+              'bg-color-warning': ['25','35'].indexOf(appConfig.colorOption) >= 0,
+              'bg-color-danger': ['26','36'].indexOf(appConfig.colorOption) >= 0
+          }">
+        <div class="hidden-lg-up float-left">
+            <button md-button myToggleOffcanvasNav class="md-button header-icon toggle-sidebar-btn">
+                <i class="material-icons">menu</i>
+            </button>
+        </div>
+        <div class="brand hidden-md-down">
+            <h2>
+                 <img  [src] ="logoImage" width="auto" height="45px" />
+            </h2>
+        </div>
+        <div class="top-nav-right">
+            <ul class="list-unstyled float-right">
+                <li style="margin-top: 14px;margin-right: 5px"> 
+                    <div id="google_translate_element"></div>
+                </li>    
+                <li>
+                    <button md-button class="md-button header-btn" (click)="onSignout()">
+                        <img src="{{profilePic}}" alt="" class="rounded img30_30">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

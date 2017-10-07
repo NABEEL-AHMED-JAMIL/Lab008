@@ -1,0 +1,21 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<!--<ul onlynumber></ul>-->
+<div class="container-fluid" *ngIf="contactCache">
+    <div class="row" *ngFor="let field of contactCache.activeQuestionnaire.questions">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput placeholder="{{field.label}}" [(ngModel)]="field.value" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent" (click)="undoSubmit()">Edit Responses</button>
+    <div  *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>
+<br>

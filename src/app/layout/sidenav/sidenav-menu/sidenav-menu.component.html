@@ -1,0 +1,81 @@
+<ul class="nav" myAccordionNav myAppendSubmenuIcon mySlimScroll myHighlightActiveItems *ngIf="dUser!=null">
+    <!--new header added-->
+    <li *ngIf="!(dUser.admin || dUser.canManageClientBridge)">
+        <a md-button [routerLink]="['/app/questionnaires']">
+            <i class="material-icons notranslate">content_paste</i>
+            <span class="space"></span>
+            <span class="nav-text ">Questionnaires
+                <sup  class="badge badge-pill badge-danger"
+                 style="position: absolute;padding: 3px 7px;display: inherit;top: 8px;right: 110px;" >{{openStatus | async}}</sup>    
+            </span>
+            
+        </a>
+    </li>
+        <li *ngIf="!(dUser.admin || dUser.canManageClientBridge)">
+        <a md-button [routerLink]="['/app/checklist']">
+            <i class="material-icons notranslate">check_circle</i>
+            <span class="space"></span>
+            <span class="nav-text">Checklists</span>
+        </a>
+    </li>
+    <li *ngIf="!(dUser.admin || dUser.canManageClientBridge)">
+        <a md-button [routerLink]="['/app/mycases']">
+            <i class="material-icons notranslate">work</i>
+            <span class="space"></span>
+            <span class="nav-text">My Cases</span>
+        </a>
+    </li>
+    <li *ngIf="folderId && dUser.aoauth && !(dUser.admin || dUser.canManageClientBridge)">
+        <a md-button [routerLink]="['/app/files']" [queryParams]="{ fId: folderId }">
+            <i class="material-icons notranslate">folder</i>
+            <span class="space"></span>
+            <span class="nav-text">Files</span>
+        </a>
+    </li>
+
+
+    <!--admin section -->
+    <li *ngIf="dUser.admin || dUser.canManageClientBridge">
+         <a md-button [routerLink]="['/admin/contacts']"> 
+            <i class="nav-icon material-icons notranslate">person</i>
+            <span class="nav-text">Contacts</span>
+        </a>
+    </li>
+
+    <li  *ngIf="dUser.admin || dUser.canManageClientBridge">
+        <a md-button [routerLink]="['/admin/checklists']">
+            <i class="nav-icon material-icons notranslate">check_circle</i>
+            <span class="nav-text">Checklists</span>
+        </a>
+    </li>
+
+    <li  *ngIf="dUser.admin || dUser.canManageClientBridge">
+        <a md-button [routerLink]="['/admin/questionnaires']">
+            <i class="nav-icon material-icons notranslate">content_paste</i>
+            <span class="nav-text">Questionnaires</span>
+        </a>
+    </li>
+    <!-- || dUser.canManageClientBridge -->
+    <li  *ngIf="dUser.admin || dUser.canManageClientBridge">
+        <a md-button [routerLink]="['/admin/presets']">
+            <i class="nav-icon material-icons notranslate">stars</i>
+            <span class="nav-text">Presets</span>
+        </a>
+    </li>
+
+    <li  *ngIf="dUser.admin || dUser.canManageClientBridge">
+        <a md-button [routerLink]="['/admin/settings']">
+            <i class="nav-icon material-icons notranslate">settings</i>
+            <span class="nav-text">Settings</span>
+        </a>
+    </li>
+
+    <li  *ngIf="dUser.admin || dUser.canManageClientBridge">
+        <a md-button [routerLink]="['/admin/request']">
+            <i class="nav-icon material-icons notranslate">face</i>
+            <span class="nav-text">Requests</span>
+        </a>
+    </li>
+
+
+</ul>

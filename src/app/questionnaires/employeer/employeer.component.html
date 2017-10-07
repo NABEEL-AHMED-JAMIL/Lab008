@@ -1,0 +1,60 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<!--<ul onlynumber></ul>-->
+<div class="container-fluid" *ngIf="data">
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.employer" placeholder="Legal Name of Employer" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.jobTitle" placeholder="Job Title" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.workLocations" placeholder="Work location(s)" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.salary" onlynumber="true" placeholder="Salary" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.employFromDate | dateFormat" (ngModelChange)="changeModel($event)" type="date" placeholder="From Date"
+                    [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.employToDate | dateFormat" (ngModelChange)="changeModel($event)" type="date" placeholder="To Date"
+                    [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    
+    
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent" (click)="undoSubmit()">Edit Responses</button>
+    <div  *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+    
+</div>
+<br>

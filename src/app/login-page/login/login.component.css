@@ -1,0 +1,12 @@
+.footer{
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+}
+
+.col-login{
+    margin: auto;
+}
+.static {
+    position:static;
+}

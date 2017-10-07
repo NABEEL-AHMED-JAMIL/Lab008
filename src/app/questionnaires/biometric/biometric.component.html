@@ -1,0 +1,128 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.visaType" placeholder="Type of Visa" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.elisnum" placeholder="USCIS Online Account Number (if any)" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.I94Num" placeholder="I94Num" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.I94FullName" placeholder="I94Full Name" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.passportNum" placeholder="Passport Number" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.passportIssue | dateFormat" (ngModelChange)="data.passportIssue = changeModel($event)" type="date" placeholder="Passport Issued Date"
+                    [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.passportExpire | dateFormat" (ngModelChange)="data.passportExpire = changeModel($event)" type="date" placeholder="Passport Issued Expiry Date"
+                    [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.passportPlace" placeholder="Place of Issuance" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.travelDocumentNumber" placeholder="Travel Document Number" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.priorityDate | dateFormat" (ngModelChange)="data.priorityDate = changeModel($event)" type="date" placeholder="Priority Date"
+                    [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.everInUS" placeholder="Have you ever been in the US" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.arrivalUSLastEntryDate | dateFormat" (ngModelChange)="data.arrivalUSLastEntryDate =  changeModel($event)" type="date" placeholder="Arrival In Us Last Entry Date"
+                    [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.arrivalUSLastEntryPlace1" placeholder="Arrival In Us Last Entry CityTown" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.arrivalUSLastEntryPlace2" placeholder="State Abbr" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.arrivalUSLastEntryStatus" placeholder="Arrival In Us Last Entry Status" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.countryIssuance" placeholder="Country of Issuance Travel" [disabled]="readOnly">
+            </md-input-container>
+        </div>
+    </div>
+    
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent" (click)="undoSubmit()">Edit Responses</button>
+    <div  *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>

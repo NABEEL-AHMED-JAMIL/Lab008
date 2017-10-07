@@ -1,0 +1,35 @@
+<nav class="app-sidebar" myAutoCloseMobileNav
+     [ngClass]="{'bg-color-light': ['31','32','33','34','35','36'].indexOf(AppConfig.colorOption) >= 0,
+                 'bg-color-dark': ['31','32','33','34','35','36'].indexOf(AppConfig.colorOption) < 0 }">
+
+    <section class="sidebar-header"
+             [ngClass]="{'bg-color-dark': ['11','31'].indexOf(AppConfig.colorOption) >= 0,
+                         'bg-color-light': AppConfig.colorOption === '21',
+                         'bg-color-primary': ['12','22','32'].indexOf(AppConfig.colorOption) >= 0,
+                         'bg-color-success': ['13','23','33'].indexOf(AppConfig.colorOption) >= 0,
+                         'bg-color-info': ['14','24','34'].indexOf(AppConfig.colorOption) >= 0,
+                         'bg-color-warning': ['15','25','35'].indexOf(AppConfig.colorOption) >= 0,
+                         'bg-color-danger': ['16','26','36'].indexOf(AppConfig.colorOption) >= 0}">
+        
+        
+       <img  [src] ="logoImage" width="110px" height="45px"/>
+        <a href="javascript:;" class="collapsednav-toggler" (click)="toggleCollapsedNav()">
+            <i class="material-icons" *ngIf="this.AppConfig.navCollapsed">radio_button_unchecked</i>
+            <i class="material-icons" *ngIf="!this.AppConfig.navCollapsed">radio_button_checked</i>
+        </a>
+    </section>
+
+    <section class="sidebar-content">
+        <my-app-sidenav-menu></my-app-sidenav-menu>
+    </section>
+
+    <section class="sidebar-footer">
+        <ul class="nav">
+            <li>
+                <a md-button aria-label="menu" target="_blank" [href]="productLink" >
+                <i class="nav-icon material-icons">help</i>
+                  <span class="nav-text"><span>Help</span> & <span>Support</span></span></a>
+            </li>
+        </ul>
+    </section>
+</nav>

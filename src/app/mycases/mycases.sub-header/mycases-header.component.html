@@ -1,0 +1,38 @@
+<div class="box box-default" *ngIf="title">
+    <div [ngClass]="getAppConfig()"  class="bg-color-primary tb-opacity">
+        <md-toolbar class="square tb-remove-color">
+            <span style="flex: 0.04 auto;"></span>
+            <span class="title">{{title}}
+            <br>
+            <span class="subtitle">{{subtitle}}</span>
+            </span>
+
+        </md-toolbar>
+    </div>
+</div>
+
+<div class="box box-default" *ngIf="item">
+    <div [ngClass]="getAppConfig()"  class="bg-color-primary tb-opacity">
+        <md-toolbar class="square tb-remove-color">
+            <a [routerLink]="['/app/mycases']" class="arrow_color notranslate"><i class="material-icons">keyboard_backspace</i></a>
+            <span style="flex: 0.03 auto;"></span>
+            <span class="title">{{item.contactName}}<br>
+                <span class="subtitle">{{item.name}}</span>
+            </span>
+            <span style="flex: 0.8 1 auto;"></span>
+            <span class="small_fount">Date Opened<br>
+                <span class="small_fountXL">{{utilService.dateChange(item.createdDate)}}</span>
+            </span>
+            <span style="flex: 0.04 1 auto;"></span>
+            <span class="small_fount">Balance<br>
+                <span class="small_fountXL">${{balance}}</span>
+            </span>
+            <span style="flex: 0.08 1 auto;"></span>
+            <span mdTooltip="Status" mdTooltipPosition="left">
+                <button class="btn-w-xs mat-accent mat-raised-button" md-raised-button="" [ngStyle]="{'background-color': utilService.statusColor(item), 'color': 'white'}">
+                {{utilService.status(item)}}
+                </button>
+            </span>
+        </md-toolbar>
+    </div>
+</div>

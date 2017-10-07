@@ -1,0 +1,72 @@
+ <!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Lolly - Client Bridge</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--end-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', 
+                includedLanguages: 'ar,cs,de,en,es,fr,hr,it,ja,ko,pt,ru,sk,sv,th,tl,uk,vi,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false 
+            }, 'google_translate_element');
+        }
+        WebFontConfig = {
+            google: { families: ['Roboto:100,300,400,400italic,500,700:latin'] }
+        };
+        (function () {
+            var wf = document.createElement('script');
+            wf.src = 'vendors/webfontloader/webfontloader.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="vendors/loader.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/material-design-icons/iconfont/material-icons.css" rel="stylesheet">
+
+
+
+
+    <!-- start Editor . -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.4/css/froala_editor.min.css' rel='stylesheet' type='text/css'
+    />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.4/css/froala_style.min.css' rel='stylesheet' type='text/css'
+    />
+    <!-- <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.4/js/froala_editor.min.js'></script> -->
+     <!-- End editor -->
+
+    <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body id="body">
+    
+    <app-root>
+        <div id="loader-container"></div>
+    </app-root>
+
+    <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+        <!-- Webpack Dev Server reload -->
+        <script src="/webpack-dev-server.js"></script>
+        <% } %>
+</body>
+
+</html>

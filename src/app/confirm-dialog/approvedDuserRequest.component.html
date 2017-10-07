@@ -1,0 +1,14 @@
+<h1 style="text-align: center;" md-dialog-title>{{conform}}</h1>
+<div  md-dialog-content *ngIf="approve">
+    <b >{{APPROVED}}</b>
+</div>
+<div md-dialog-content  *ngIf="!approve">
+    <b >{{DENY}}</b>
+</div>
+<br>
+<div md-dialog-actions>
+    <button md-button (click)="dialogRef.close('NO')">{{no}}</button>
+    <p style="width: 100%;"></p>
+    <button md-button (click)="dialogRef.close('YES')" >{{yes}}</button>
+</div>
+

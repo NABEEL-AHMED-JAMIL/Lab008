@@ -1,0 +1,67 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row" *ngIf="!readOnly">
+        <div class="col-md-11" align="right">
+            <button md-raised-button type="submit" class="material-icons" color="primary" (click)="addOther()">
+                            Add
+            </button>
+            <br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div *ngFor="let e of data.others ; let i = index">
+                <section>
+                    <article class="article">
+                        <div class="box box-default">
+                            <div class="container-fluid">
+                                <br>
+                                <div class="row">
+                                    <!--First Name 1-->
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Firat Name" [(ngModel)]="e.firstName" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Middle Name 2-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Middle Name" [(ngModel)]="e.middleName" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Last Name 3-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Last Name" [(ngModel)]="e.lastName" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+
+                                <div class="row" *ngIf="!readOnly">
+                                    <div class="col-md-3 form-group">
+                                        <button md-raised-button class="btn-w-md" (click)="deleteOther(i)" color="warn">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent" (click)="undoSubmit()">Edit Responses</button>
+    <div  *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>
+<br>
+<br>

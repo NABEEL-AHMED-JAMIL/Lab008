@@ -1,0 +1,118 @@
+<create-presets-header [title]="title" [subtitle]="subtitle"></create-presets-header>
+<div *ngIf="preset">
+    <div class="container-fluid top">
+        <!-- <a href="javascript:;"><h6>Presets</h6></a> -->
+        <div class="row">
+            <div class="col-sm-6" style="margin-left: 40px;">
+                <md-input-container class="full-width">
+                    <input mdInput placeholder="Title" [(ngModel)]="preset.title" />
+                </md-input-container>
+                <md-input-container class="full-width">
+                    <input mdInput placeholder="Description" [(ngModel)]="preset.description" />
+                </md-input-container>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <p class="font-14 font-blue" style="margin-left:12px">Questionnaire(s)</p>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box box-default" *ngFor="let ques of preset.questionnaires; let i = index">
+                    <div class="box-body box-padding">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <div class="typo-styles__demo mdl-typography--title">
+                                    <span class="arial-serif font-13 font-darkgray">{{ques.title}}</span>
+                                </div>
+                                <div class="typo-styles__desc">
+                                    <span class="typo-styles__name ">
+                                    <span class="font-10 font-gray">{{ques.instruction}}</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="row">
+                                    <div class="col-sm-4" style="text-align: center; margin-top: 5px;">
+                                        <span mdTooltip="Remove" mdTooltipPosition="left">
+                                        <a href="javascript:;" class="circle-close-gray">
+                                                <i class="material-icons font-20" (click)="onRemoveQuestionnaire(ques)">cancel</i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2" style="max-width: 6.33333%;">
+                <span mdTooltip="Add Questionnaire" mdTooltipPosition="right">
+            <button color="success" md-fab="" class="mat-success mat-fab" ng-reflect-color="success" (click)="onAddQuestionnaire()">
+                <span class="mat-button-wrapper" style="text-align: end;"> 
+                    <md-icon class="material-icons mat-icon" role="img" aria-label="add">add</md-icon>
+                </span>
+                </button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container-fluid">
+        <p class="font-14 font-blue" style="margin-top:30px;margin-left:-26px ">Checklist(s)</p>
+        <div class="row">
+            <div class="col-sm-12">
+                <article class="article artical-margin">
+                    <div class="box box-default ">
+                        <div class="box-body box-padding" *ngFor="let check of preset.checklists; let i = index">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <dd>
+                                        <div class="typo-styles__demo mdl-typography--title"><span class="arial-serif font-13 font-darkgray">{{check.title}}</span></div>
+                                        <div class="typo-styles__desc">
+                                            <span class="typo-styles__name "><span class="font-10 font-gray">{{check.description}}</span></span>
+                                        </div>
+                                    </dd>
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="row">
+                                        <div class="col-sm-4" style="text-align: center; margin-top: 5px;">
+                                            <span mdTooltip="Remove" mdTooltipPosition="left">
+                                            <a href="javascript:;" class="circle-close-gray">
+                                                <i class="material-icons font-20" (click)="onRemoveChecklist(check)">cancel</i>
+                                            </a>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1" style="max-width: 6.33333%;">
+                <span mdTooltip="Add Checklist" mdTooltipPosition="right">
+                <button color="success" md-fab="" class="mat-success mat-fab" ng-reflect-color="success" (click)="onAddChecklist()">
+                    <span class="mat-button-wrapper" style="text-align: end;"> 
+                        <md-icon class="material-icons mat-icon" role="img" aria-label="add">add</md-icon>
+                    </span>
+                </button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <br><br><br><br><br><br>
+    <div style="margin-right: 75px; text-align: end;">
+        <button md-raised-button class="btn-w-md" (click)="onCancel()" style="background-color: grey; color: white">Cancel</button>
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave()">Save</button>
+    </div>
+</div>

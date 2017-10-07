@@ -1,0 +1,90 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<div class="container-fluid" *ngIf="data">
+    <div class="row" *ngIf="!readOnly">
+        <div class="col-md-11" align="right">
+            <!-- style="margin-left:auto" -->
+            <button md-raised-button type="submit" class="material-icons margin_auto_button" color="primary" (click)="addArrivals()">
+                Add
+            </button><br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11">
+            <div *ngFor="let e of data.arrivals ; let i = index">
+                <section>
+                    <article class="article">
+                        <div class="box box-default">
+                            <div class="container-fluid">
+                                <br>
+                                <div class="row">
+                                    <!--Arrival Date 1-->
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Arrival Date" type="date" [ngModel]="e.arrivalDate | dateFormat" (ngModelChange)="e.arrivalDate = changeModel($event)"
+                                                [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Departure Date 2-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Departure Date" [ngModel]="e.departureDate | dateFormat" (ngModelChange)="e.departureDate = changeModel($event)"
+                                                [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Arrival(Port of Entry) 3-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Arrival(Port of Entry)" [(ngModel)]="e.arrivalPortEntry" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Type of Visa 4-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput class="form-control" placeholder="Type of Visa" [(ngModel)]="e.visaType" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--I-94 Number 5-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="I-94 Number" type="number" [(ngModel)]="e.i94Num" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <!--Alien Number (No Dashes) 6-->
+                                <div class="row">
+                                    <div class="col-md-11 form-group">
+                                        <md-input-container class="full-width">
+                                            <input mdInput placeholder="Alien Number (No Dashes)" type="number" [(ngModel)]="e.alienNum" [disabled]="readOnly" />
+                                        </md-input-container>
+                                    </div>
+                                </div>
+
+                                <div class="row" *ngIf="!readOnly">
+                                    <div class="col-md-3 form-group">
+                                        <button md-raised-button class="btn-w-md" (click)="deleteArrivals(i)" color="warn">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent" (click)="undoSubmit()">Edit Responses</button>
+    <div  *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>

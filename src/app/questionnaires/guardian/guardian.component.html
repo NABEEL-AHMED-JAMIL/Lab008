@@ -1,0 +1,318 @@
+<questionnaires-header [title]="title" [subtitle]="subtitle" [path]="path" [showArrow]="showArrow"></questionnaires-header>
+<!--<ul onlynumber></ul>-->
+<div class="container-fluid" *ngIf="data">
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="What is your current marital status?" [(ngModel)]="data.marriageStatus" [disabled]="readOnly">
+                <md-option *ngFor="let status of martialStatus" [value]="status">
+                    {{status}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.marriageStartDate | dateFormat" (ngModelChange)="data.marriageStartDate = changeModel($event)"
+                    type="date" placeholder="Date of Marriage" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.marriageStartPlace" placeholder="Place of Marriage" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherFirstName" placeholder="Mother First Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherMiddleName" placeholder="Mother Middle Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherMaidenName" placeholder="Mother's Maiden Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherBirthCity" placeholder="Mother's Birth City" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherBirthCountry" placeholder="Mother's Birth Country" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.motherBirthDate | dateFormat" (ngModelChange)="data.motherBirthDate = changeModel($event)"
+                    type="date" placeholder="Mother's Date of Birth" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherResidenceCity" placeholder="Mother's City of Residence" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherResidenceCountry" placeholder="Mother's Country of Residence" [disabled]="readOnly"
+                />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.motherEmployed" placeholder="My mother is employed" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherFirstName" placeholder="Father's First Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherMiddleName" placeholder="Father's Middle Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherLastName" placeholder="Father's Middle Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherBirthCity" placeholder="Father's Birth City" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherBirthCountry" placeholder="Father Birth Country" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.fatherBirthDate | dateFormat" (ngModelChange)="data.fatherBirthDate = changeModel($event)"
+                    type="date" placeholder="Father's Date of Birth" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherResidenceCity" placeholder="Father's City of Residence" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherResidenceCountry" placeholder="Father's Country of Residence" [disabled]="readOnly"
+                />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.fatherEmployed" placeholder="My father is employed" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.addressMainCounty" placeholder="Country" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseFirstName" placeholder="Spouse First Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseMiddleName" placeholder="Spouse Middle Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseLastName" placeholder="Spouse Last Name" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseMaidenName" placeholder="Maiden Name (if applicable)" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseImmigrationStatus" placeholder="Immigration Status" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseGender" placeholder="Gender" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseSsn" onlynumber="true" placeholder="Social Security Number (No spaces or dashes)"
+                    [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseAlienNum" onlynumber="true" placeholder="Alien Number (No Dashes)" [disabled]="readOnly"
+                />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.spouseBirthDate | dateFormat" (ngModelChange)="data.spouseBirthDate = changeModel($event)"
+                    type="date" placeholder="Date of Birth" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseBirthCity" placeholder="City / Town of Birth" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-select placeholder="State / Province of Birth" [(ngModel)]="data.spouseBirthState" [disabled]="readOnly">
+                <md-option *ngFor="let state of states" [value]="state">
+                    {{state}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseBirthCountry" placeholder="Country of Birth" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.birthDateComponent" type="date" placeholder="Date of Birth" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseCitizenship" placeholder="Citizenship / Nationality" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spouseCountryNationality" placeholder="Country of Nationality" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spousePassportNum" placeholder="Passport #" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [(ngModel)]="data.spousePassportPlace" placeholder="Passport Country of Issuance" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.spousePassportIssueDate | dateFormat" (ngModelChange)="data.spousePassportIssueDate = changeModel($event)"
+                    type="date" placeholder="Date Passport Issued" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 form-group">
+            <md-input-container class="full-width">
+                <input mdInput [ngModel]="data.spousePassportExpiryDate | dateFormat" (ngModelChange)="data.spousePassportExpiryDate = changeModel($event)"
+                    type="date" placeholder="Passport valid to (Date)" [disabled]="readOnly" />
+            </md-input-container>
+        </div>
+    </div>
+
+    <div class="divider divider-md"></div>
+    <button *ngIf="!isAdmin && formStatus.toLowerCase() == 'submitted'" md-raised-button type="submit" class="btn-w-md" color="accent"
+        (click)="undoSubmit()">Edit Responses</button>
+    <div *ngIf="!readOnly" style="text-align: end;">
+        <button md-raised-button type="submit" class="btn-w-md" color="accent" (click)="onSave(data)">Save</button>
+        <span class="space"></span>
+        <button md-raised-button type="submit" class="btn-w-md" color="primary" (click)="onSavenSubmit(data)">Submit to Attorney</button>
+    </div>
+    <br>
+</div>
+<br>
